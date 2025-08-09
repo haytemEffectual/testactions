@@ -16,6 +16,12 @@ on:
       
   # Allow manually triggering the workflow from the Actions UI
   workflow_dispatch: 
+    inputs:
+      name: 
+        description: 'person to greet'
+        default: 'World'
+        required: true
+      
 
 # Jobs section - defines what jobs (sets of steps) will run
 jobs:
