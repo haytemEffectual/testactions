@@ -1,20 +1,30 @@
+# Name of the workflow as shown in the Actions tab
 name: CI
 
+# Trigger section - defines when the workflow will run
 on:
+  # Run this workflow on push events
   push:
     branches:
+      # Only run when code is pushed to the 'main' branch
       - main
+  # Run this workflow on pull request events
   pull_request: 
     branches: 
+      # Only run when pull requests target the 'main' branch
       - main
 
+# Jobs section - defines what jobs (sets of steps) will run
 jobs:
   build:
+    # This job will run on the latest available Ubuntu runner
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Check out the repository code onto the runner
       - name: Checkout code
         uses: actions/checkout@v4
       
+      # Step 2: Run a command that prints "Hello, world!" to the console
       - name: Say Hello
         run: echo "Hello, world!"
