@@ -13,6 +13,8 @@ on:
     branches: 
       # Only run when pull requests target the 'main' branch
       - main
+      
+  # Allow manually triggering the workflow from the Actions UI
   workflow_dispatch: 
 
 # Jobs section - defines what jobs (sets of steps) will run
@@ -22,10 +24,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository code onto the runner
+      # Step 1: Check out the repository code onto the runner so subsequent steps can access it
       - name: Checkout code
         uses: actions/checkout@v4
       
-      # Step 2: Run a command that prints "Hello, world!" to the console
+      # Step 2: Run a command that prints "Hello, world!" to the console for demonstration purposes
       - name: Say Hello
         run: echo "Hello, world!"
